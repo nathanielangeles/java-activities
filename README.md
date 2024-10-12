@@ -1,2 +1,2 @@
-# java-activities
-Java activities
+# Java Activities
+Java activities for school. Nothing else.
