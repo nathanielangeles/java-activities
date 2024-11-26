@@ -16,7 +16,7 @@ ChatGPT...The man. The myth. The legend.
 
 /* TESTED ON
 Linux (Debian 12)
- */
+*/
 
 /* SEQUENCE OF METHODS. EACH ARE SEPARATED BY A COMMENT.
 clearConsole()
