@@ -1,9 +1,3 @@
-/* STUDENT INFORMATION
- Name: Nathaniel Elle G. Angeles
- Section: BIT112-OBc
- Date Submited:
-*/
-
 /* REFERENCES/GUIDES
 HashMap: https://youtu.be/0dR-YAFFg6I?si=BEWk0tki6rbUW3rC & https://www.w3schools.com/java/java_hashmap.asp -- Implemented
 NumberExceptionError: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NumberFormatException.html -- Implemented
