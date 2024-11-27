@@ -1,17 +1,18 @@
 /* STUDENT INFORMATION
  Name: Nathaniel Elle G. Angeles
  Section: BIT112-OBc
- Date Submited: 
+ Date Submited:
 */
 
 /* REFERENCES/GUIDES
-HashMap: https://youtu.be/0dR-YAFFg6I?si=BEWk0tki6rbUW3rC & https://www.w3schools.com/java/java_hashmap.asp
-NumberExceptionError: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NumberFormatException.html
-Java Exception/Error handling using try-catch: https://www.w3schools.com/java/java_try_catch.asp
-Clear Terminal Screen: https://rootstack.com/en/blog/java-clear-screen
-Thread.sleep() to sleep the system: https://www.geeksforgeeks.org/thread-sleep-method-in-java-with-examples/
-CTRL+C Interruption handling: https://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#addShutdownHook(java.lang.Thread) -- WIP
-ChatGPT...The man. The myth. The legend.
+HashMap: https://youtu.be/0dR-YAFFg6I?si=BEWk0tki6rbUW3rC & https://www.w3schools.com/java/java_hashmap.asp -- Implemented
+NumberExceptionError: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/NumberFormatException.html -- Implemented
+Java Exception/Error handling using try-catch: https://www.w3schools.com/java/java_try_catch.asp -- Implemented
+Clear Terminal Screen: https://rootstack.com/en/blog/java-clear-screen -- Implemented
+Thread.sleep() to sleep the system: https://www.geeksforgeeks.org/thread-sleep-method-in-java-with-examples/ -- Implemented
+CTRL+C Interruption handling: https://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#addShutdownHook(java.lang.Thread) -- Cancelled
+ChatGPT...The man. The myth. The legend. -- Used for debugging
+VS Code auto-fix and completion -- Utilized
 */
 
 /* TESTED ON
@@ -29,11 +30,12 @@ Main Method(Entrance)
 */
 
 /* TODOS
-Test on Windows 10 and Windows 11. (Soon)
-Remove redundant comments. (WIP) ] From 500+ lines of code
-Fix comments. (WIP)              ] to 300+ lines of code
-Update code. (WIP)
-Sanitize user input. (Done)
+Test on Windows 10 and Windows 11. -- Soon
+Remove redundant comments. -- Done ] From 500+ lines of code
+Fix comments. -- Done              ] to 400+ lines of code
+Use easy to understand comments for explaining. -- Done
+Update code. -- Done
+Sanitize user input. -- Done
 */
 
 /* CHANGES & MODIFICATIONS 
@@ -377,27 +379,36 @@ public class BankingSystem {
         System.out.println("\nWelcome to the Multi-Tier Bank Account Management System");
         System.out.println("1. Register\n2. Login\n3. Exit");
         
-        System.out.print("[+] Enter your choice: ");
-        int choice = input.nextInt();
+        while (true) {
+            try {
+            System.out.print("[+] Enter your choice: ");
+            int choice = input.nextInt();
 
-        switch (choice) {
-            case 1:
-                userRegister();
-                break;
-            
-                case 2:
-                userLogin();
-                break;
+            switch (choice) {
+                case 1:
+                    userRegister();
+                    break;
 
-            case 3:
-                System.out.println("\nExiting now.");
+                    case 2:
+                    userLogin();
+                    break;
+
+                case 3:
+                    System.out.println("\nExiting now.");
+                    sleepConsole(); // Sleep terminal for 3 seconds.
+                    System.exit(0); // Exit the program.
+
+                default:
+                    System.out.println("\nInvalid choice.");
+                    sleepConsole(); // Sleep terminal for 3 seconds.
+                    mainMenu(); // Display main menu again.
+                }
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("\nInvalid input. Please enter a number.");
                 sleepConsole(); // Sleep terminal for 3 seconds.
-                System.exit(0); // Exit the program.
-
-            default:
-                System.out.println("\nInvalid choice. Exiting by default.");
-                sleepConsole(); // Sleep terminal for 3 seconds.
-                System.exit(0); // Exit the program.
+                mainMenu(); // Display main menu again.
+                input.nextLine(); // Clear invalid input from the scanner.
+            } 
         }
     }
 
